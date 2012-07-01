@@ -1,2 +1,33 @@
 principal:
     https://docs.djangoproject.com/en/dev/ref/contrib/gis/
+instalacao:
+    https://docs.djangoproject.com/en/dev/ref/contrib/gis/install/#ref-gis-install
+        geos:
+            http://trac.osgeo.org/geos/
+            * instalei autoconf, libtool
+            ! demora e num eh pouco nao
+        proj.4:
+            https://docs.djangoproject.com/en/dev/ref/contrib/gis/install/#proj4
+        postgis:
+            !!!! instalei por apt-get postgresql-9.1-postgis
+                http://www.kindle-maps.com/blog/how-to-create-a-postgis-database-on-ubuntu.html
+                criando o banco de dados:
+                    sudo -u postgres createdb <nome>
+                adicionando plpgsql !!! ver o que eh hehe
+                    sudo -u postgres createlang plpgsql <nome>
+                importar os arquivos do postgis
+                    sudo -u postgres psql -d comidinha -f /usr/share/postgresql/9.1/contrib/postgis-1.5/postgis.sql
+                    sudo -u postgres psql -d comidinha -f /usr/share/postgresql/9.1/contrib/postgis-1.5/spatial_ref_sys.sql
+                    !!! seguindo tutorial do site
+                        https://docs.djangoproject.com/en/dev/ref/contrib/gis/install/#post-installation                
+            https://docs.djangoproject.com/en/dev/ref/contrib/gis/install/#postgis
+            * instalar postgresql server development
+                sudo apt-get install postgresql-server-dev-<VERSION>(no caso 9.1)
+            * instalar libxml2-dev(ou configurar)
+                sudo apt-get install libxml2-dev            
+    postgresql:
+        http://tinfor.wordpress.com/2012/04/30/instalar-e-configurar-postgres-no-ubuntu-12/
+        * da documentacao do geodjango
+            sudo apt-get install binutils gdal-bin libproj-dev postgresql-9.1-postgis \
+     postgresql-server-dev-9.1 python-psycopg2
+    

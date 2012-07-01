@@ -1,0 +1,2 @@
+criar db espacial:
+    createdb -T template_postgis <db_name>
