@@ -1,0 +1,10 @@
+sisteminha com seguintes papeis:
+    friend:
+        possui alimentos sobrando e ainda consumiveis
+        indica ao sistema tal estado, com a lista de alimentos de que dispoe
+        
+    distributor:
+        intermedia a coleta de alimentos dos friends e a distribuicao para os 'centros de distribuicao'
+        
+    distribution center:
+        faz a distribuicao dos alimentos coletados para as pessoas que se dispoem a se alimentarem em seus estabelecimentos fisicos

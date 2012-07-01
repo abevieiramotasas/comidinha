@@ -1,0 +1,68 @@
+>Papeis
+
+friend:
+    endereco:
+        endereco fisico do friend <1>, utilizado para que o distributor possa ir ao local recolher o alimento 
+    pessoas a contactar[] ( vocativo + nome ):
+        indica quais pessoas e como querem ser tratadas ao serem abordados pelos distributors ou representantes do sistema( vale pesquisar sobre alguma padronizacao nesse cadastro de pessoas?)
+    contato[]:
+        indica como contactar tais pessoas por outros meios, como e-mail e telefone <2>
+    login:
+        string utilizada pelo friend para acessar o sistema
+    password:
+        senha utilizada pelo friend para acessar o sistema
+    public?:
+        informa se o friend permite que seu historico e informacoes pessoas sejam disponibilizadas publicamente
+    homepage:
+        homepage do friend(legal quando for empresas, como restaurantes, que ficam alegrinhos com a propaganda que pode render)
+    descricao:
+        descricao do friend(novamente, legal para empresas)
+    
+food:
+    descricao:
+        descricao da comida<3>
+    quantidade_peso:
+        peso estimado da comida(utilizado para prever se o distributor consegue comportar tal comida)
+    quantidade_volume:
+        volume estimado da comida(mesmo de quantidade_peso)
+    friend:
+        friend relacionado a comida, de acordo com o status(0,1: se dispos a doar, 2, 3: doou)
+    distributor:
+        distributor que coletou a comida, de acordo com o status(
+    status ( 0: in friend, 1: distributor allocated, 2: in distributor, 3: eated ):
+        indica o status da comida > 0: friend indicou que esta disposto a doar, a comida esta no endereco do friend<4>, 1: um distributor indicou que esta disposto a coletar, 2: distributor coletou e esta a caminho de um distribution_center, 3: comida foi entregue a um distribution_center
+    disponibilidade:
+        indica quais horarios/dias a comida pode ser coletada no friend<7>
+    
+distributor:
+    descricao:
+        descricao do distributor
+    homepage:
+        homepage do distributor
+    contato[]:
+        como contactar
+    posicao:
+        indica a posicao atual do distributor(veiculo utilizado)<5>(utilizado para gerar rotas otimizadas de forma dinamica)
+    capacidade:
+        indica a capacidade atual para comportar comidas<6>
+    
+distribution_center:
+    descricao:
+        descricao do distribution_center
+    homepage:
+        homepage do distribution_center
+    contato[]:
+        como contactar
+    necessidade:
+        demanda atual por comida, utilizado para informar aos distributors prioridades de locais aos quais se dirigir para entregar comida
+        
+>Definicoes em aberto
+<1> Como descrever endereco
+<2> Como descrever contato
+<3> Como descrever comida
+<4> Permitir que um friend indique um local diverso ao que apontou no cadastro?(permitindo: agiliza o processo, caso necessario(sera mesmo necessario?))
+<5> Conceitualmente, um distributor eh associado a um veiculo ou a varios?
+<6> Como descrever capacidade
+<7> Como descrever disponibilidade. Deve-se contemplar disponibilidades como:
+    comida perecivel, feita em horario proximo do qual o cadastro da comida foi feita no sistema, de forma que deve ser coletada ate certo limite apos tal horario
+    comida nao-perecivel, podendo o friend informar horarios/dias em que se dispoe a estar no local para entregar
