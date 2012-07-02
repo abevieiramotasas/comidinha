@@ -6,6 +6,7 @@ instalacao:
             http://trac.osgeo.org/geos/
             * instalei autoconf, libtool
             ! demora e num eh pouco nao
+            ! instalar python-psycopg2
         proj.4:
             https://docs.djangoproject.com/en/dev/ref/contrib/gis/install/#proj4
         postgis:
@@ -30,4 +31,14 @@ instalacao:
         * da documentacao do geodjango
             sudo apt-get install binutils gdal-bin libproj-dev postgresql-9.1-postgis \
      postgresql-server-dev-9.1 python-psycopg2
+     
+    gdal:
+        https://docs.djangoproject.com/en/dev/ref/contrib/gis/install/#gdal
+        adicionar ao settings.py do projeto django
+            GDAL_LIBRARY_PATH = '/usr/local/lib/libgdal.so'
+     
+! erro peer authentication
+    http://www.depesz.com/2007/10/04/ident/
+    alterado em /etc/postgresql/9.1/main/pg_hba.conf
+        local   all             postgres                                trust
     
