@@ -41,4 +41,8 @@ instalacao:
     http://www.depesz.com/2007/10/04/ident/
     alterado em /etc/postgresql/9.1/main/pg_hba.conf
         local   all             postgres                                trust
+        
+        
+>Estudar
+    http://code.google.com/p/geodjango-basic-apps/
     
