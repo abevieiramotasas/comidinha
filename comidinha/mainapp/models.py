@@ -11,6 +11,8 @@ def validate_phone(phone):
 class PhoneField(models.CharField):
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 20
+        kwargs['blank'] = False
+        kwargs['null'] = False
         if 'validators' in kwargs:
             kwargs['validators'].append(validate_phone)
         else:
@@ -35,6 +37,7 @@ class DonorHouse(models.Model):
     homepage = HomepageField()
     # TODO limitar tamanho?
     description = models.TextField()
+    objects = models.GeoManager()
     
     def __unicode__(self):
         return self.login
@@ -56,8 +59,13 @@ class Distributor(models.Model):
     # TODO melhor usar PointField ou (lat, lon) ?
     position = models.PointField()
     # TODO como descrever capacidade?
-    height = models.IntegerField()
-    volume = models.IntegerField()
+    # capacidade maxima
+    max_height = models.IntegerField()
+    max_volume = models.IntegerField()
+    # capacidade utilizada
+    height = models.IntegerField(default=0)
+    volume = models.IntegerField(default=0)
+    objects = models.GeoManager()
     
     def __unicode__(self):
         return self.homepage
@@ -69,6 +77,7 @@ class DistributionCenter(models.Model):
     phone = PhoneField()
     # TODO como descrever a necessidade de alimentos?!
     necessity = models.IntegerField()
+    objects = models.GeoManager()
     
     def __unicode__(self):
         return self.description

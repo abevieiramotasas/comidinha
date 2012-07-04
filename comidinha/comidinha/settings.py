@@ -5,6 +5,7 @@ PROJECT_PATH = "/home/abelardo/Projetos/Comidinha/comidinha"
 MAINAPP_PATH = os.path.join(PROJECT_PATH, "mainapp")
 MAINAPP_TEMPLATE_PATH = os.path.join(MAINAPP_PATH, "templates")
 
+GEOIP_PATH = os.path.join(MAINAPP_PATH, "geoip")
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
