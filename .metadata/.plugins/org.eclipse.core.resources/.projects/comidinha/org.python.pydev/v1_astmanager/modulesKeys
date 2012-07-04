@@ -1,0 +1,12 @@
+MODULES_MANAGER_V2
+comidinha.__init__|/home/abelardo/Projetos/Comidinha/comidinha/comidinha/__init__.py
+comidinha.settings|/home/abelardo/Projetos/Comidinha/comidinha/comidinha/settings.py
+comidinha.urls|/home/abelardo/Projetos/Comidinha/comidinha/comidinha/urls.py
+comidinha.wsgi|/home/abelardo/Projetos/Comidinha/comidinha/comidinha/wsgi.py
+mainapp.__init__|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/__init__.py
+mainapp.admin|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/admin.py
+mainapp.models|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/models.py
+mainapp.tests|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/tests.py
+mainapp.urls|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/urls.py
+mainapp.views|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/views.py
+manage|/home/abelardo/Projetos/Comidinha/comidinha/manage.py

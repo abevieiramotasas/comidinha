@@ -1,21 +1,29 @@
 from django.contrib.gis.db import models
 
+# common fields
+# campo de telefone
+# TODO validator
+class PhoneField(models.CharField):
+    def __init__(self, *args, **kwargs):
+        kwargs['max_length'] = 20
+        super(PhoneField, self).__init__(*args, **kwargs)
+        
+        
+class HomepageField(models.URLField):
+    def __init__(self, *args, **kwargs):
+        kwargs['blank'] = True
+        kwargs['null'] = True
+        super(HomepageField, self).__init__(*args, **kwargs)
+        
+
 class DonorHouse(models.Model):
     # TODO como descrever endereco fisico? utilizando um ponto
     address = models.PointField()
     # TODO como descrever telefone?
-    # > mesmo em models.Donor.phone
-    # > mesmo em models.Distributor.phone
-    # > mesmo em models.DistributionCenter.phone
-    phone = models.CharField(max_length=12)
+    phone = PhoneField()
     login = models.CharField(max_length=12, unique=True)
-    # TODO como tratar password?
     password = models.CharField(max_length=12)
-    public = models.BooleanField()
-    # TODO ver como funciona
-    # TODO unique para um field funciona por tabela, o que nao eh a intencao aqui
-    #      ou retira o homepage como unico, ou o coloca numa tabela, ou faz a verificacao correta
-    homepage = models.URLField(unique=True)
+    homepage = HomepageField()
     # TODO limitar tamanho?
     description = models.TextField()
     
@@ -24,19 +32,18 @@ class DonorHouse(models.Model):
 
 
 class Donor(models.Model):
-    # TODO setar vocativos | qual traducao pro ingreis?
-    vocativo = models.CharField(max_length=6)
     name = models.CharField(max_length=30)
-    phone = models.CharField(max_length=12)
+    phone = PhoneField()
     house = models.ForeignKey(DonorHouse)
     
     def __unicode__(self):
         return self.name
         
+        
 class Distributor(models.Model):
     description = models.TextField()
-    homepage = models.URLField(unique=True)
-    phone = models.CharField(max_length=12)
+    homepage = HomepageField()
+    phone = PhoneField()
     # TODO melhor usar PointField ou (lat, lon) ?
     position = models.PointField()
     # TODO como descrever capacidade?
@@ -49,8 +56,8 @@ class Distributor(models.Model):
         
 class DistributionCenter(models.Model):
     description = models.TextField()
-    homepage = models.URLField(unique=True)
-    phone = models.CharField(max_length=12)
+    homepage = models.URLField(blank=True, null=True)
+    phone = PhoneField()
     # TODO como descrever a necessidade de alimentos?!
     necessity = models.IntegerField()
     
@@ -65,8 +72,8 @@ class Food(models.Model):
     # > mesmo para volume
     height = models.IntegerField()
     volume = models.IntegerField()
-    distributor = models.ForeignKey(Distributor, blank=True)
-    distribution_center = models.ForeignKey(DistributionCenter, blank=True)
+    distributor = models.ForeignKey(Distributor, blank=True, null=True)
+    distribution_center = models.ForeignKey(DistributionCenter, blank=True, null=True)
     STATUS_OF_DELIVERY = (
         ('0', 'In donor'), 
         ('1', 'Distributor allocated'),

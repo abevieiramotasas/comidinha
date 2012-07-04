@@ -1,1 +1,1 @@
-alterar o modelo de Food para usar ManyToMany nos relacionamentos
+adicionar modelos abstratos para os fields de contato e outros que porventura aparecam e sejam comuns 

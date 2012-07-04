@@ -1,0 +1,91 @@
+-- VERSION_3
+-- START DISKCACHE
+/home/abelardo/Projetos/Comidinha/.metadata/.plugins/org.eclipse.core.resources/.projects/comidinha/com.python.pydev.analysis/v1_indexcache
+.v1_indexcache
+mainapp.admin|0|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/admin.py
+comidinha.urls|0|/home/abelardo/Projetos/Comidinha/comidinha/comidinha/urls.py
+comidinha.settings|0|/home/abelardo/Projetos/Comidinha/comidinha/comidinha/settings.py
+mainapp.__init__|0|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/__init__.py
+comidinha.__init__|0|/home/abelardo/Projetos/Comidinha/comidinha/comidinha/__init__.py
+mainapp.views|0|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/views.py
+manage|0|/home/abelardo/Projetos/Comidinha/comidinha/manage.py
+comidinha.wsgi|0|/home/abelardo/Projetos/Comidinha/comidinha/comidinha/wsgi.py
+mainapp.tests|0|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/tests.py
+mainapp.urls|0|/home/abelardo/Projetos/Comidinha/comidinha/mainapp/urls.py
+-- END DISKCACHE
+-- START DICTIONARY
+10
+7=comidinha.urls
+3=mainapp.admin
+1=comidinha.settings
+4=mainapp.views
+9=DonorHouseAdmin
+8=DonorInline
+2=comidinha.wsgi
+5=mainapp.tests
+6=mainapp.urls
+10=SimpleTest
+-- END DICTIONARY
+-- START TREE 1
+32
+!<m|0|
+adm|1|ADMINS!11@
+app|1|application!19@
+dat|1|DATABASES!11@
+deb|1|DEBUG!11@
+dis|0|
+don|2|DonorHouseAdmin!25@DonorInline!25@
+ext|0|
+foo|1|FoodAdmin!25@
+gda|1|GDAL_LIBRARY_PATH!11@
+hom|0|
+ind|1|index!34@
+ins|1|INSTALLED_APPS!11@
+lan|1|LANGUAGE_CODE!11@
+log|1|LOGGING!11@
+mai|2|MAINAPP_PATH!11@MAINAPP_TEMPLATE_PATH!11@
+man|1|MANAGERS!11@
+med|2|MEDIA_ROOT!11@MEDIA_URL!11@
+mid|1|MIDDLEWARE_CLASSES!11@
+mod|0|
+pho|0|
+pro|1|PROJECT_PATH!11@
+roo|1|ROOT_URLCONF!11@
+sec|1|SECRET_KEY!11@
+sim|1|SimpleTest!41@
+sit|1|SITE_ID!11@
+sta|4|STATIC_URL!11@STATIC_ROOT!11@STATICFILES_FINDERS!11@STATICFILES_DIRS!11@
+tem|3|TEMPLATE_DEBUG!11@TEMPLATE_DIRS!11@TEMPLATE_LOADERS!11@
+tim|1|TIME_ZONE!11@
+url|2|urlpatterns!51@urlpatterns!59@
+use|3|USE_I18N!11@USE_L10N!11@USE_TZ!11@
+wsg|1|WSGI_APPLICATION!11@
+-- END TREE
+-- START TREE 2
+25
+__i|0|
+__u|0|
+add|0|
+ava|0|
+des|0|
+dis|0|
+don|0|
+ext|1|extra!8&27@
+foo|0|
+hei|0|
+hom|0|
+hou|0|
+inl|1|inlines!9&27@
+log|0|
+mod|1|model!8&27@
+nam|0|
+nec|0|
+pas|0|
+pho|0|
+pos|0|
+pub|0|
+sta|0|
+tes|1|test_basic_addition!10&42@
+voc|0|
+vol|0|
+-- END TREE
