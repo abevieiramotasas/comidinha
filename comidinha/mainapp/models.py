@@ -1,14 +1,24 @@
 from django.contrib.gis.db import models
-
+import re
+from django.core.exceptions import ValidationError
 # common fields
 # campo de telefone
-# TODO validator
+phone_re = re.compile(r'^\(([0-9]){2}\)-([0-9]){4}-([0-9]){4}$')
+def validate_phone(phone):
+    if not phone_re.match(phone):
+        raise ValidationError(u'%s is not a valid phone number' % phone)
+    
 class PhoneField(models.CharField):
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 20
+        if 'validators' in kwargs:
+            kwargs['validators'].append(validate_phone)
+        else:
+            kwargs['validators'] = [validate_phone]
         super(PhoneField, self).__init__(*args, **kwargs)
         
-        
+
+# campo de homepage                
 class HomepageField(models.URLField):
     def __init__(self, *args, **kwargs):
         kwargs['blank'] = True
@@ -19,7 +29,6 @@ class HomepageField(models.URLField):
 class DonorHouse(models.Model):
     # TODO como descrever endereco fisico? utilizando um ponto
     address = models.PointField()
-    # TODO como descrever telefone?
     phone = PhoneField()
     login = models.CharField(max_length=12, unique=True)
     password = models.CharField(max_length=12)
