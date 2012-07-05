@@ -1,6 +1,5 @@
 from django.contrib.gis import admin
 from models import DonorHouse, Donor, Distributor, DistributionCenter, Food
-
 # admin.site.register(DonorHouse, admin.GeoModelAdmin)
 
 class DonorInline(admin.TabularInline):

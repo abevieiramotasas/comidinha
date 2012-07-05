@@ -1,6 +1,7 @@
 from django.contrib.gis.db import models
 import re
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
 # common fields
 # campo de telefone
 phone_re = re.compile(r'^\(([0-9]){2}\)-([0-9]){4}-([0-9]){4}$')
@@ -28,19 +29,23 @@ class HomepageField(models.URLField):
         super(HomepageField, self).__init__(*args, **kwargs)
         
 
-class DonorHouse(models.Model):
-    # TODO como descrever endereco fisico? utilizando um ponto
-    address = models.PointField()
+# modelos
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, unique=True)
+    # outros atributos
+    # TODO usando blank e null = True temporariamente
+    # enquanto ainda nao vi o comportamento do PointField
+    address = models.PointField(blank=True, null=True)
     phone = PhoneField()
-    login = models.CharField(max_length=12, unique=True)
-    password = models.CharField(max_length=12)
     homepage = HomepageField()
-    # TODO limitar tamanho?
     description = models.TextField()
-    objects = models.GeoManager()
+    geo_objects = models.GeoManager()
     
     def __unicode__(self):
-        return self.login
+        return self.user.username
+    
+class DonorHouse(UserProfile):
+    pass
 
 
 class Donor(models.Model):
@@ -52,11 +57,7 @@ class Donor(models.Model):
         return self.name
         
         
-class Distributor(models.Model):
-    description = models.TextField()
-    homepage = HomepageField()
-    phone = PhoneField()
-    # TODO melhor usar PointField ou (lat, lon) ?
+class Distributor(UserProfile):
     position = models.PointField()
     # TODO como descrever capacidade?
     # capacidade maxima
@@ -64,23 +65,11 @@ class Distributor(models.Model):
     max_volume = models.IntegerField()
     # capacidade utilizada
     height = models.IntegerField(default=0)
-    volume = models.IntegerField(default=0)
-    objects = models.GeoManager()
-    
-    def __unicode__(self):
-        return self.homepage
         
         
-class DistributionCenter(models.Model):
-    description = models.TextField()
-    homepage = models.URLField(blank=True, null=True)
-    phone = PhoneField()
+class DistributionCenter(UserProfile):
     # TODO como descrever a necessidade de alimentos?!
     necessity = models.IntegerField()
-    objects = models.GeoManager()
-    
-    def __unicode__(self):
-        return self.description
         
         
 class Food(models.Model):

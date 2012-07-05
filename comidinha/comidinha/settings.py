@@ -6,6 +6,9 @@ MAINAPP_PATH = os.path.join(PROJECT_PATH, "mainapp")
 MAINAPP_TEMPLATE_PATH = os.path.join(MAINAPP_PATH, "templates")
 
 GEOIP_PATH = os.path.join(MAINAPP_PATH, "geoip")
+
+AUTH_PROFILE_MODULE = 'mainapp.UserProfile'
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 

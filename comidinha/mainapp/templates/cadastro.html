@@ -1,0 +1,5 @@
+<form action="/mainapp/donorhouse/cadastro/" method="post">{% csrf_token %}
+{{ form_user.as_p }}
+{{ form.as_p }}
+<input type="submit" value="Enviar" />
+</form>
