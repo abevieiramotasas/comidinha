@@ -2,10 +2,13 @@
 import os
 
 PROJECT_PATH = "/home/abelardo/Projetos/Comidinha/comidinha"
+
 MAINAPP_PATH = os.path.join(PROJECT_PATH, "mainapp")
 MAINAPP_TEMPLATE_PATH = os.path.join(MAINAPP_PATH, "templates")
 
 GEOIP_PATH = os.path.join(MAINAPP_PATH, "geoip")
+
+JS_PATH = os.path.join(os.path.join(MAINAPP_PATH, "media"), "js")
 
 AUTH_PROFILE_MODULE = 'mainapp.UserProfile'
 
@@ -82,6 +85,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    JS_PATH,
 )
 
 # List of finder classes that know how to find static files in
